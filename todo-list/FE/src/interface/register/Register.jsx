@@ -1,6 +1,5 @@
 import React from "react";
 import Button from "../components/button/Button";
-import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const Register = () => {
   return (
