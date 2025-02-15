@@ -1,5 +1,6 @@
 package com.hoanganhdev.todolist;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.ResponseEntity;
@@ -12,17 +13,17 @@ import org.springframework.web.servlet.function.EntityResponse;
 import java.util.Map;
 
 @SpringBootApplication
-@RestController
-@CrossOrigin(origins = "http://localhost:5173")
 public class TodolistApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TodolistApplication.class, args);
-	}
+		Dotenv dotenv = Dotenv.load();
+		System.setProperty("DB_HOST", dotenv.get("DB_HOST"));
+		System.setProperty("DB_PORT", dotenv.get("DB_PORT"));
+		System.setProperty("DB_NAME", dotenv.get("DB_NAME"));
+		System.setProperty("DB_USER", dotenv.get("DB_USER"));
+		System.setProperty("DB_PASSWORD", dotenv.get("DB_PASSWORD"));
 
-	@PostMapping("/api/auth/login")
-	public ResponseEntity<Map<String, String>> login() {
-		return ResponseEntity.ok(Map.of("message", "Login successful"));
+		SpringApplication.run(TodolistApplication.class, args);
 	}
 }
 
