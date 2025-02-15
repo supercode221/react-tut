@@ -4,6 +4,7 @@ import Header from "./interface/components/header/header";
 import Sidebar from "./interface/components/side-bar/Sidebar";
 import MainContentHeader from "./interface/components/mainContentHeader/MainContentHeader";
 import MainContent from "./interface/components/mainContent/mainContent";
+import MainCard from "./interface/components/mainCard/MainCard";
 
 function App() {
   return (
